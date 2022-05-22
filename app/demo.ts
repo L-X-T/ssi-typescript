@@ -35,6 +35,18 @@ class PersonClass {
   }
 }
 
+function Dienstnehmer(id, vorname, nachname, abteilung) {
+  Person.call(this, id, vorname, nachname);
+  this.abteilung = abteilung;
+}
+
+Dienstnehmer.prototype = new Person(this.id, this.vorname, this.nachname);
+Dienstnehmer.prototype.wechsle = function (neueAbteilung) {
+  console.debug(this.vollerName() + ' wechselt zu ' + neueAbteilung);
+
+  this.abteilung = neueAbteilung;
+};
+
 export function run() {
   // classic
   // forEach(myIntegers, showAlert);
@@ -66,7 +78,7 @@ export function run() {
     console.debug(this);
   });*/
 
-  forEach('test', 'test');
+  // forEach('test', 'test');
 
   /*try {
     console.debug('trying...');
@@ -76,4 +88,9 @@ export function run() {
   } finally {
     console.debug('...finally done :-)');
   }*/
+
+  var dn = new Dienstnehmer(1, 'Max', 'Muster', 'Management');
+  console.debug('Dienstnehmer', dn);
+  dn.wechsle('Dev');
+  console.debug('Nach Wechsel', dn);
 }
