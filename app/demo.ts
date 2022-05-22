@@ -90,7 +90,13 @@ export function run() {
   }*/
 
   var dn = new Dienstnehmer(1, 'Max', 'Muster', 'Management');
-  console.debug('Dienstnehmer', dn);
+  /*console.debug('Dienstnehmer', dn);
   dn.wechsle('Dev');
-  console.debug('Nach Wechsel', dn);
+  console.debug('Nach Wechsel', dn);*/
+
+  const dn2 = { ...dn, vorname: 'Maria' };
+  console.debug('Dienstnehmer 2', dn2);
+
+  const myIntegersExtended = [...myIntegers, 4];
+  console.debug(myIntegersExtended);
 }
